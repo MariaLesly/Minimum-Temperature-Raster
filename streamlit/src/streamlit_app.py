@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-#import geopandas as gpd
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -47,28 +46,31 @@ tab1, tab2, tab3, tab4 = st.tabs([
 with tab1:
     st.header("Descripción de los Datos")
     st.markdown("""
-    Esta sección presenta **TBC** que sirven de base para el análisis geoespacial 
-    de temperaturas en el Perú.  
+    Esta sección presentan los datos empleados para el análisis de temperaturas en el Perú.  
     Se utilizan tres tipos principales de datos:
     
     1. **TBC**: TBC 
     2. **TBC**: TBC
-       a nivel nacional, permitiendo contextualizar la accesibilidad hospitalaria en función de la población y el territorio.  
     3. **TBC**: TBC
 
     """)
 
-    st.header("Carga del Raster")
+st.header("📂 Carga del Raster")
+
 uploaded = st.file_uploader("Sube un raster de temperatura (.tif)", type=["tif"])
 
 if uploaded is None:
     st.info("Usando el raster de ejemplo incluido en la app.")
-    raster_path = "data/temperature_peru.tif"
+    raster_path = os.path.join(BASE_DIR, "data", "tmin_raster.tif")
 else:
     raster_path = uploaded
 
-# Mostrar metadatos (ejemplo)
-st.image("figures/raster_preview.png", caption="Raster base de temperatura")
+# Mostrar vista previa o imagen ilustrativa
+preview_path = os.path.join(BASE_DIR, "figures", "raster_preview.png")
+if os.path.exists(preview_path):
+    st.image(preview_path, caption="Vista previa del raster base")
+else:
+    st.warning("No se encontró la vista previa del raster.")
 
 
 # TAB 2 - Estadísticas zonales
