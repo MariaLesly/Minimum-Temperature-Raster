@@ -89,14 +89,13 @@ with tab2:
 with tab3:
     st.header("Gráfico de distribución")
 
-    st.subheader("Distribución")
-    show_map("mapa_proximidad_Lima.html")
+    show_img("TBC")
     st.markdown("""
    [TBC: Aquí se presenta el gráfico de distribución]
     """)
 
     st.subheader("Ranking")
-    show_map("mapa_proximidad_Loreto.html")
+    show_img("TBC")
     st.markdown("""
     [TBC: Aquí se presenta el gráfico de ranking]
     """)
@@ -106,24 +105,39 @@ with tab3:
      [TBC: Aquí se presenta el mapa estático]
     """)
 
-# TAB 3 - Propuestas de política pública
+# TAB 4 - Propuestas de política pública
 with tab4:
     st.header("Propuestas de política pública ante el friaje en zonas altoandinas y olas de frío en la Amazonía")
 
-    st.subheader("Propuesta de política 1")
+    st.subheader("Red de monitoreo de salud climática")
     st.markdown("""
-   [TBC: Aquí se desarrollará la propuesta de política 1]
+    - **Objetivo específico:** Disminución de enfermedades respiratorias mediante la detección temprana y respuesta rápida a brotes vinculados a bajas temperaturas.
+    - **Población / territorio objetivo:** Niños menores de 5 años y adultos mayores en distritos de Puno, Cusco, Ayacucho y Huancavelica.
+    - **Intervención:** Instalación de una red digital de vigilancia:
+            - Centros de salud equipados con sensores de temperatura ambiental y alertas automáticas de riesgo.
+            - Uso de mensajería móvil para notificar a promotores y familias sobre medidas preventivas cuando la temperatura baja a umbrales críticos (<9.5°C)
+    - **Costo estimado:** Inversión en sensores, software y capacitación ascendente a S/1,920,000 (S/20,000 por cada uno de los 64 hospitales en funcionamiento en los 4 departamentos seleccionados).
+    - **KPI:** −10% en hospitalizaciones por infecciones respiratorias en zonas monitoreadas.
     """)
 
-    st.subheader("Propuesta de política 2")
+    st.subheader("Protección de ganado frente a helados")
     st.markdown("""
-  [TBC: Aquí se desarrollará la propuesta de política 2]
+    - **Objetivo específico:** Reducir la mortalidad del ganado por hipotermia durante heladas.
+    - **Población / territorio objetivo:** Distritos altoandinos ganaderos con temperaturas menores menores a 9.5°C en Puno, Cusco, Ayacucho y Huancavelica.
+    - **Intervención:** Construcción de 1,000 módulos de resguardo ganadero (cobertizos térmicos con aislamiento y pisos secos).
+    - **Costo estimado:** Inversión en construcción de módulos ascendente a S/3,500,000 (S/3,500 por módulo)
+    - **KPI:** -10% en la mortalidad de alpacas, ovinos y vacunos durante heladas.
     """)
 
-    st.subheader("Propuesta de política 3")
+    st.subheader("Horario escolar flexible en distritos vulnerables al de friaje")
     st.markdown("""
-  [TBC: Aquí se desarrollará la propuesta de política 3]
+    - **Objetivo específico:** Reducir el ausentismo y los casos de infecciones respiratorias agudas (IRA) en estudiantes de educación básica durante los meses de menor temperatura.
+    - **Población / territorio objetivo:** Estudiantes de instituciones educativas públicas en distritos con temperaturas mínimas promedio menores a 9.5 °C, principalmente en Puno, Cusco, Ayacucho y Huancavelica.
+    - **Intervención:** Implementar un horario escolar flexible y escalonado durante la temporada de friaje (mayo–agosto), que contemple:
+            - Retrasar el inicio de clases entre 90 y 120  minutos en zonas de heladas intensas (de 8:00 a 8:30 a.m. o más tarde).
+            - Coordinar con las UGEL y DRE para ajustar calendarios sin reducir horas lectivas anuales.
+    - **Costo estimado:** S/10,000 de gastos de coordinación y difusión por cada una de las 47 UGEL en los departamentos priorizados.
+    - **KPI:** −10% en la tasa de inasistencia escolar de los distritos priorizados en los meses de junio–agosto (vs. promedio 3 años previos).
     """)
-
 
 
