@@ -46,8 +46,8 @@ tab1, tab2, tab3, tab4 = st.tabs([
 with tab1:
     st.header("Descripción de los Datos")
     st.markdown("""
-    Esta sección presentan los datos empleados para el análisis de temperaturas en el Perú.  
-    Se utilizan tres tipos principales de datos:
+    Esta sección presenta los datos empleados para el análisis de temperaturas en el Perú.  
+    Se utilizan las siguientes fuentes de información:
     
     1. **TBC**: TBC 
     2. **TBC**: TBC
@@ -55,23 +55,24 @@ with tab1:
 
     """)
 
-st.header("📂 Carga del Raster")
+    # Ruta del archivo .tif dentro del proyecto
+raster_path = os.path.join("data", "tmin_raster.tif")
 
-uploaded = st.file_uploader("Sube un raster de temperatura (.tif)", type=["tif"])
+st.header("🌡️ Raster de temperatura mínima")
 
-if uploaded is None:
-    st.info("Usando el raster de ejemplo incluido en la app.")
-    raster_path = os.path.join(BASE_DIR, "data", "tmin_raster.tif")
-else:
-    raster_path = uploaded
+st.write("""
+Puedes descargar el raster base que se usó en esta aplicación (temperatura mínima promedio).
+Este archivo corresponde al cálculo de temperatura mínima anual interpolada para el Perú.
+""")
 
-# Mostrar vista previa o imagen ilustrativa
-preview_path = os.path.join(BASE_DIR, "figures", "raster_preview.png")
-if os.path.exists(preview_path):
-    st.image(preview_path, caption="Vista previa del raster base")
-else:
-    st.warning("No se encontró la vista previa del raster.")
-
+# Botón de descarga
+with open(raster_path, "rb") as file:
+    btn = st.download_button(
+        label="⬇️ Descargar raster (.tif)",
+        data=file,
+        file_name="tmin_raster.tif",
+        mime="image/tiff"
+    )
 
 # TAB 2 - Estadísticas zonales
 with tab2:
