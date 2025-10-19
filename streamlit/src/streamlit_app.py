@@ -126,8 +126,8 @@ with tab4:
     - **Objetivo específico:** Reducir el ausentismo y los casos de infecciones respiratorias agudas (IRA) en estudiantes de educación básica durante los meses de menor temperatura.
     - **Población / territorio objetivo:** Estudiantes de instituciones educativas públicas en distritos con temperaturas mínimas promedio menores a 9.5 °C, principalmente en Puno, Cusco, Ayacucho y Huancavelica.
     - **Intervención:** Implementar un horario escolar flexible y escalonado durante la temporada de friaje (mayo–agosto), que contemple:
-            - Retrasar el inicio de clases entre 90 y 120  minutos en zonas de heladas intensas (de 8:00 a 8:30 a.m. o más tarde).
-            - Coordinar con las UGEL y DRE para ajustar calendarios sin reducir horas lectivas anuales.
+        - Retrasar el inicio de clases entre 90 y 120  minutos en zonas de heladas intensas (de 8:00 a 8:30 a.m. o más tarde).
+        - Coordinar con las UGEL y DRE para ajustar calendarios sin reducir horas lectivas anuales.
     - **Costo estimado:** S/10,000 de gastos de coordinación y difusión por cada una de las 47 UGEL en los departamentos priorizados.
     - **KPI:** −10% en la tasa de inasistencia escolar de los distritos priorizados en los meses de junio–agosto (vs. promedio 3 años previos).
     """)
