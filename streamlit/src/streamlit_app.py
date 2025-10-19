@@ -47,11 +47,9 @@ with tab1:
     st.header("Descripción de los Datos")
     st.markdown("""
     Esta sección presenta los datos empleados para el análisis de temperaturas en el Perú.  
-    Se utilizan las siguientes fuentes de información:
-    
-    1. **TBC**: TBC 
-    2. **TBC**: TBC
-    3. **TBC**: TBC
+    En particular, se empleó un **raster de temperaturas mínimas promedio en Perú**.
+                
+    En las pestañas, se presenta el botón de descarga de la información.
 
     """)
 
