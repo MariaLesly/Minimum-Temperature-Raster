@@ -28,7 +28,7 @@ def show_img(filename, height=600):
         if not os.path.exists(img_path):
             st.error(f"No se encontró el archivo: {img_path}")
             return
-        st.image(img_path, caption=filename, use_container_width=True)
+        st.image(img_path, caption=filename)
     except Exception as e:
         st.error(f"Error mostrando el mapa {filename}: {e}")
 
@@ -61,8 +61,7 @@ raster_path = os.path.join("data", "tmin_raster.tif")
 st.header("🌡️ Raster de temperatura mínima")
 
 st.write("""
-Puedes descargar el raster base que se usó en esta aplicación (temperatura mínima promedio).
-Este archivo corresponde al cálculo de temperatura mínima anual interpolada para el Perú.
+Puede descargar el raster base que se usó en esta aplicación (temperatura mínima promedio) en el siguiente botón.
 """)
 
 # Botón de descarga
@@ -88,23 +87,17 @@ with tab2:
 
 # TAB 3 - Gráficos
 with tab3:
-    st.header("Gráfico de distribución")
+    st.header("Distribución de temperaturas mínimas medias por distrito")
+    show_img("histograma_tmin_media.png")
 
-    show_img("TBC")
-    st.markdown("""
-   [TBC: Aquí se presenta el gráfico de distribución]
-    """)
+    st.header("Top 15 de los distritos con las temperaturas mínimas más altas en el Perú")
+    show_img("top15_distritos_mas_calidos.png")
 
-    st.subheader("Ranking")
-    show_img("TBC")
-    st.markdown("""
-    [TBC: Aquí se presenta el gráfico de ranking]
-    """)
+    st.header("Top 15 de los distritos con las temperaturas mínimas más bajas en el Perú")
+    show_img("top15_distritos_mas_frios.png")
 
-    st.subheader("Mapa estático")
-    st.markdown("""
-     [TBC: Aquí se presenta el mapa estático]
-    """)
+    st.subheader("Mapa estático de temperatura mínima media por distrito en el Perú (°C)")
+    show_img("choropleth_tmin_mean.png")
 
 # TAB 4 - Propuestas de política pública
 with tab4:
