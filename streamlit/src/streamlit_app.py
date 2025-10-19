@@ -106,8 +106,8 @@ with tab4:
     - **Objetivo específico:** Disminución de enfermedades respiratorias mediante la detección temprana y respuesta rápida a brotes vinculados a bajas temperaturas.
     - **Población / territorio objetivo:** Niños menores de 5 años y adultos mayores en distritos de Puno, Cusco, Ayacucho y Huancavelica.
     - **Intervención:** Instalación de una red digital de vigilancia:
-            - Centros de salud equipados con sensores de temperatura ambiental y alertas automáticas de riesgo.
-            - Uso de mensajería móvil para notificar a promotores y familias sobre medidas preventivas cuando la temperatura baja a umbrales críticos (<9.5°C)
+        - Centros de salud equipados con sensores de temperatura ambiental y alertas automáticas de riesgo.
+        - Uso de mensajería móvil para notificar a promotores y familias sobre medidas preventivas cuando la temperatura baja a umbrales críticos (<9.5°C)
     - **Costo estimado:** Inversión en sensores, software y capacitación ascendente a S/1,920,000 (S/20,000 por cada uno de los 64 hospitales en funcionamiento en los 4 departamentos seleccionados).
     - **KPI:** −10% en hospitalizaciones por infecciones respiratorias en zonas monitoreadas.
     """)
