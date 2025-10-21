@@ -63,13 +63,13 @@ Puede descargar el raster base que se usó en esta aplicación (temperatura mín
 """)
 
 # Botón de descarga
-with open(raster_path, "rb") as file:
-    btn = st.download_button(
-        label="⬇️ Descargar raster (.tif)",
-        data=file,
-        file_name="tmin_raster.tif",
-        mime="image/tiff"
-    )
+#with open(raster_path, "rb") as file:
+#    btn = st.download_button(
+#        label="⬇️ Descargar raster (.tif)",
+#        data=file,
+#        file_name="tmin_raster.tif",
+#        mime="image/tiff"
+#    )
 
 # TAB 2 - Estadísticas zonales
 
