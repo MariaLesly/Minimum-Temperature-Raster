@@ -54,7 +54,7 @@ with tab1:
     """)
 
     # Ruta del archivo .tif dentro del proyecto
-raster_path = os.path.join("data", "tmin_raster.tif")
+raster_path = os.path.join(BASE_DIR, "data", "tmin_raster.tif")
 
 st.header("🌡️ Raster de temperatura mínima")
 
@@ -72,16 +72,57 @@ with open(raster_path, "rb") as file:
     )
 
 # TAB 2 - Estadísticas zonales
+
 with tab2:
-    st.header("Estadísticas zonales")
+    st.header("📊 Estadísticas zonales de temperatura mínima")
 
-    st.markdown("""
-    [TBC: Se presentan estadísticas (at least: mean, min, max, std, p10, p90) + one custom metric.]
-    """)
+    # Ruta al archivo CSV con resultados
+    csv_path = os.path.join(BASE_DIR, "outputs", "zonal_tmin_bandas.csv")
 
-    st.markdown("""
-    [TBC: Se presentan las tablas descargables en formato CSV]
-    """)
+    # Verificar existencia del archivo
+    if os.path.exists(csv_path):
+        st.success("✅ Archivo encontrado: estadísticas zonales por distrito y banda")
+
+        # Cargar DataFrame
+        df_zonal = pd.read_csv(csv_path)
+
+        # Mostrar vista previa
+        st.subheader("Vista previa de los datos")
+        st.dataframe(df_zonal.head(10), use_container_width=True)
+
+        # Estadísticas descriptivas agregadas por distrito
+        st.subheader("📈 Resumen de estadísticas por distrito (media entre bandas)")
+        resumen = (
+            df_zonal.groupby("DISTRITO")[["mean", "min", "max", "std", "range_temp"]]
+            .mean()
+            .sort_values(by="mean", ascending=True)
+            .reset_index()
+        )
+        st.dataframe(resumen.head(15))
+
+        # Botón de descarga
+        with open(csv_path, "rb") as f:
+            st.download_button(
+                label="⬇️ Descargar archivo completo (.csv)",
+                data=f,
+                file_name="zonal_tmin_bandas.csv",
+                mime="text/csv"
+            )
+
+        # Mostrar descripción de variables
+        with st.expander("ℹ️ Descripción de las variables"):
+            st.markdown("""
+            - **mean:** Temperatura mínima promedio (°C) por distrito.  
+            - **min / max:** Valores extremos observados dentro del distrito.  
+            - **std:** Desviación estándar de la temperatura mínima.  
+            - **percentile_10 / percentile_90:** Percentiles que indican los rangos más fríos y más cálidos.  
+            - **range_temp:** Diferencia entre la temperatura máxima y mínima dentro del distrito (variabilidad interna).  
+            - **banda:** Índice temporal o de periodo del raster procesado.  
+            """)
+
+    else:
+        st.error(f"No se encontró el archivo CSV en: {csv_path}")
+        st.info("Por favor, asegúrese de haber generado las estadísticas zonales en el notebook y guardado el archivo en /outputs/.")
 
 # TAB 3 - Gráficos
 with tab3:
