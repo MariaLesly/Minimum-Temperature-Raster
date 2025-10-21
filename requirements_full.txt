@@ -27,4 +27,3 @@ nbformat>=5.7.0
 # Utilities
 chardet>=5.0.0
 
-streamlit
