@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 # CONFIGURACIÓN DE LA APP
 # -------------------------------------------
 st.set_page_config(
-    page_title="Accesibilidad a Hospitales en el Perú",
+    page_title="Análisis temperatura mínima del Perú - Grupo 8",
     layout="wide"
 )
 
