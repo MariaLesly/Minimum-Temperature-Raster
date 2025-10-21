@@ -35,10 +35,6 @@ Para ejecutar este proyecto, necesitas tener instaladas las siguientes dependenc
    streamlit run streamlit_app.py
    ```
 
-## 🗂️ Datos
-
-Los datos utilizados en este proyecto se encuentran en el directorio `data/`.
-
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo [LICENSE](LICENSE).
