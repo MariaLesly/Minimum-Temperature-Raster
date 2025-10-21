@@ -75,20 +75,52 @@ with open(raster_path, "rb") as file:
 with tab2:
     st.header("📊 Estadísticas zonales por distrito")
 
+    st.markdown("""
+    En esta sección se presentan las estadísticas derivadas del análisis zonal
+    realizado sobre el **raster de temperaturas mínimas (Tmin)**.  
+    Cada registro corresponde a un distrito y contiene métricas agregadas por banda:
+    - `mean`: temperatura mínima media  
+    - `min` y `max`: valores extremos  
+    - `std`: desviación estándar  
+    - `percentile_10`, `percentile_90`: percentiles de referencia  
+    - `range_temp`: rango térmico intra-distrital  
+    """)
+
+    # Ruta del CSV de resultados
     csv_path = os.path.join(BASE_DIR, "data", "zonal_tmin_bandas.csv")
 
-    if os.path.exists(csv_path):
-        df = pd.read_csv(csv_path)
-        st.dataframe(df.head(20))
-        st.download_button(
-            label="⬇️ Descargar tabla completa (CSV)",
-            data=df.to_csv(index=False).encode("utf-8"),
-            file_name="zonal_tmin_bandas.csv",
-            mime="text/csv"
-        )
+    # Verificar existencia del archivo
+    if not os.path.exists(csv_path):
+        st.error(f"❌ No se encontró el archivo de estadísticas zonales en: {csv_path}")
+        st.info("Asegúrate de haberlo generado y subido al repositorio (`data/zonal_tmin_bandas.csv`).")
     else:
-        st.warning("No se encontró el archivo zonal_tmin_bandas.csv.")
+        # Cargar el archivo
+        df = pd.read_csv(csv_path)
 
+        st.success("✅ Archivo de estadísticas zonales cargado correctamente.")
+        st.write(f"**Número de distritos:** {df['DISTRITO'].nunique()} | **Total de registros:** {len(df)}")
+
+        # Mostrar primeras filas
+        st.subheader("Vista previa de los datos")
+        st.dataframe(df.head(10))
+
+        # Métricas resumen
+        st.subheader("Resumen general de la temperatura mínima media (°C)")
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Media nacional", f"{df['mean'].mean():.2f}")
+        col2.metric("Mínimo", f"{df['mean'].min():.2f}")
+        col3.metric("Máximo", f"{df['mean'].max():.2f}")
+        col4.metric("Desv. estándar", f"{df['mean'].std():.2f}")
+
+        # Botón de descarga
+        st.subheader("Descargar resultados completos")
+        with open(csv_path, "rb") as f:
+            st.download_button(
+                label="⬇️ Descargar CSV de estadísticas zonales",
+                data=f,
+                file_name="zonal_tmin_bandas.csv",
+                mime="text/csv"
+            )
 # TAB 3 - Gráficos
 with tab3:
     st.header("Distribución de temperaturas mínimas medias por distrito")
