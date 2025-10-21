@@ -15,7 +15,7 @@ st.title("Temperaturas mínimas y riesgo de heladas en el Perú")
 st.caption("Análisis raster de temperaturas a nivel distrital y propuestas de política pública")
 
 # Directorio base del proyecto (2 niveles arriba de este script)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # -------------------------------------------
 # FUNCIÓN PARA MOSTRAR FIGURAS PNG
